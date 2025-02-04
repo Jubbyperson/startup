@@ -2,29 +2,49 @@ body {
     font-family: sans-serif;
     background-color: black;
     color: whitesmoke;
+    margin:0;
+    padding:0;
 }
 
 menu {
+    display: flex;
+    align-items: center;
     list-style-type: none;
     margin: 0;
     padding: 0;
     background-color: darkslategray;
-    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.title{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 2em;
+    padding: 27px 20px;
+    margin-right: auto;
 }
 
-li{
-    float: left;
-    color: black;
+menu li{
+    padding:0;
 }
 
-li a {
+menu li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 35px 16px;
+    padding: 20px 15px;
     text-decoration: none;
 }
 
-.active{
+menu li a:hover, .active {
     background-color: black;
+}
+
+.title img {
+    height: 50px; /* Adjust size as needed */
+    width: auto;
+    margin-right: 10px;
 }
