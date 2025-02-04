@@ -44,7 +44,7 @@ menu li a:hover, .active {
 }
 
 .title img {
-    height: 50px; /* Adjust size as needed */
+    height: 50px;
     width: auto;
     margin-right: 10px;
 }
