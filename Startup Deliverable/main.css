@@ -16,6 +16,7 @@ menu {
     position: fixed;
     top: 0;
     width: 100%;
+    font-family: sans-serif;
 }
 .title{
     display: flex;
@@ -25,6 +26,8 @@ menu {
     font-size: 2em;
     padding: 27px 20px;
     margin-right: auto;
+    font-family: sans-serif;
+
 }
 
 menu li{
@@ -37,6 +40,8 @@ menu li a {
     text-align: center;
     padding: 20px 15px;
     text-decoration: none;
+    font-family: sans-serif;
+
 }
 
 menu li a:hover, .active {
@@ -47,4 +52,23 @@ menu li a:hover, .active {
     height: 50px;
     width: auto;
     margin-right: 10px;
+    font-family: sans-serif;
+
+}
+
+footer{
+    text-align: right;
+    font-family: sans-serif;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+footer a {
+    color: white; 
+    text-decoration: none; 
+    transition: color 0.3s ease-in-out; 
+}
+
+footer a:hover {
+    color: lightblue;
+    text-decoration: underline;
 }
