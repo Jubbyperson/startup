@@ -16,10 +16,10 @@ export default function App() {
                 <nav>
                     <menu>
                         <li class="title"><img src="https://t4.ftcdn.net/jpg/02/43/26/65/360_F_243266561_JPLUStDWwsBJ05qOZsWK3G1ARB6pU8Se.jpg" width="150" length="100"></img>GymShare</li>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="workouts.html">Workouts</a></li>
-                        <li><a href="mealPlans.html">Meal Plans</a></li>
-                        <li><a href="social.html">Social</a></li>
+                        <li><NavLink to="index">Home</NavLink></li>
+                        <li><NavLink to="workouts">Workouts</NavLink></li>
+                        <li><NavLink to="mealPlans">Meal Plans</NavLink></li>
+                        <li><NavLink to="social">Social</NavLink></li>
                     </menu>
                 </nav>
                 <hr />
