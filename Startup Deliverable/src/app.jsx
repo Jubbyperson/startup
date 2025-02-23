@@ -2,6 +2,12 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { MealPlans } from './mealPlans/mealPlans';
+import { Social } from './social/social';
+import { Workouts } from './workouts/workouts';
+
 export default function App() {
   return <div className="body bg-dark text-light">
     <header>
