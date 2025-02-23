@@ -15,8 +15,8 @@ export default function App() {
                 <header>
                     <nav>
                         <menu>
-                            <li class="title"><img src="https://t4.ftcdn.net/jpg/02/43/26/65/360_F_243266561_JPLUStDWwsBJ05qOZsWK3G1ARB6pU8Se.jpg" width="150" length="100"></img>GymShare</li>
-                            <li><NavLink to="index">Home</NavLink></li>
+                            <li className="title"><img src="https://t4.ftcdn.net/jpg/02/43/26/65/360_F_243266561_JPLUStDWwsBJ05qOZsWK3G1ARB6pU8Se.jpg" width="150" length="100"></img>GymShare</li>
+                            <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="workouts">Workouts</NavLink></li>
                             <li><NavLink to="mealPlans">Meal Plans</NavLink></li>
                             <li><NavLink to="social">Social</NavLink></li>
@@ -35,7 +35,7 @@ export default function App() {
 
                 <footer>
                 <hr />
-                    <span class="text-reset">Jackson Stephens</span>
+                    <span className="text-reset">Jackson Stephens</span>
                     <br/>
                     <a href="https://github.com/Jubbyperson/startup-deliverable.git">GitHub Repository</a>
                 </footer></div>;

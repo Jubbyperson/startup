@@ -1,9 +1,68 @@
 import React from 'react';
+import './workouts.css';
 
 export function Workouts() {
   return (
-    <main className="container-fluid bg-secondary text-center">
-      <div>workouts displayed here</div>
-    </main>
+    <main>
+            <br/> 
+            <br/> 
+            <br/> 
+            <br/> 
+            <h1>Workouts</h1>
+            <h3>Username: </h3>
+            <input type="text" placeholder="Search for a workout here"/>
+            <br/> 
+            <button type="submit">Search</button>
+            <br/>
+            <br/>
+            <label for="workouts">Search by Category:</label>
+            <select id="workouts" name="workouts">
+                <option value="arms">Arm Workouts</option>
+                <option value="shoulders">Shoulder Workouts</option>
+                <option value="back">Back Workouts</option>
+                <option value="chest">Chest Workouts</option>
+                <option value="quad">Quad Workouts</option>
+                <option value="hamstring/calves">Hamstring and Calf Workouts</option>
+                <option value="core">Core Workouts</option>
+            </select>
+            <br/>
+            <button type="submit">Search</button>
+            <br/>
+            <h2>Arm Workouts</h2>
+            <p><i>content here</i></p>
+            <input type = "text" placeholder="type your workout here!"/>
+            <input type = "text" placeholder="name your workout here!"/>
+            <button type="submit">Post</button>
+            <h2>Shoulder Workouts</h2>
+            <p><i>content here</i></p>
+            <input type = "text" placeholder="type your workout here!"/>
+            <input type = "text" placeholder="name your workout here!"/>
+            <button type="submit">Post</button>
+            <h2>Back Workouts</h2>
+            <p><i>content here</i></p>
+            <input type = "text" placeholder="type your workout here!"/>
+            <input type = "text" placeholder="name your workout here!"/>
+            <button type="submit">Post</button>
+            <h2>Chest Workouts</h2>
+            <p><i>content here</i></p>
+            <input type = "text" placeholder="type your workout here!"/>
+            <input type = "text" placeholder="name your workout here!"/>
+            <button type="submit">Post</button>
+            <h2>Quad Workouts</h2>
+            <p><i>content here</i></p>
+            <input type = "text" placeholder="type your workout here!"/>
+            <input type = "text" placeholder="name your workout here!"/>
+            <button type="submit">Post</button>
+            <h2>Hamstring and Calf Workouts</h2>
+            <p><i>content here</i></p>
+            <input type = "text" placeholder="type your workout here!"/>
+            <input type = "text" placeholder="name your workout here!"/>
+            <button type="submit">Post</button>
+            <h2>Core Workouts</h2>
+            <p><i>content here</i></p>
+            <input type = "text" placeholder="type your workout here!"/>
+            <input type = "text" placeholder="name your workout here!"/>
+            <button type = "submit">Post</button>
+        </main>
   );
 }
