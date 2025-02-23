@@ -18,7 +18,6 @@ export default function App() {
         </header>
 
         <main>
-        
             App Components go Here
         </main>
         <footer>
