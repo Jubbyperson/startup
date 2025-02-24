@@ -27,4 +27,4 @@ Images:
 ![Sketch 1](image1.png.png)\
 ![Sketch 2](image2.png.png)\
 
-**How React was implemented with this website -**
+**How React was implemented with this application -** I started off by reorganizing my files to make them easier to manage and work with in the future, so putting them into their own separate folders within a new source folder that contains the majority of my code for the project. Javascript files were created for the overall app as well as each individual webpage. These files allow react to be used to navigate to the different pages of the application. Each of the application view components are imported to the app.jsx file so that when one is clicked the corresponding view is displayed. Routes are put in the file as well in order for this to work. The html content is then copied from the html files to the jsx file so that we actually are displaying what we want for each page. After it is deployed using the deployment script, the app is now using React in order to navigate through its different pages.
