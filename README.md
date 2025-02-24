@@ -26,3 +26,5 @@ WebSocket: has an option to show recent posts at the front, also can show recent
 Images:
 ![Sketch 1](image1.png.png)\
 ![Sketch 2](image2.png.png)\
+
+**How React was implemented with this website -**
