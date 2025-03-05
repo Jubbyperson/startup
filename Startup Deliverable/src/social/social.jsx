@@ -38,6 +38,18 @@ export function Social() {
       setNewFriend("");
     }
   };
+
+  const handleSendMessage = () => {
+    if (newMessage.trim()) {
+      const message = {
+        username,
+        content: newMessage.trim(),
+        timestamp: new Date().toLocaleTimeString()
+      };
+      setMessages([...messages, message]);
+      setNewMessage("");
+    }
+  };
   
   return (
     <main>
