@@ -20,6 +20,10 @@ export function Login() {
       navigate("/workouts");
     }
   };
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+  }
   return (
     <main>
             <br/> 
