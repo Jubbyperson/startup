@@ -24,6 +24,20 @@ export function Workouts() {
     'Hamstring/Calves': { workout: "", name: "" },
     'Core': { workout: "", name: "" }
   });
+
+  const categoryRefs = useRef({});
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUsername(storedUser.email);
+    }
+
+    const storedWorkouts = JSON.parse(localStorage.getItem("workouts"));
+    if (storedWorkouts) {
+      setWorkouts(storedWorkouts);
+    }
+  }, []);
   return (
     <main>
             <br/> 
