@@ -56,7 +56,7 @@ export function MealPlans() {
     });
   };
 
-  
+
   return (
     <main>
             <br/> 
@@ -65,13 +65,14 @@ export function MealPlans() {
             <br/> 
             <h1>Meals</h1>
             <h3>Username: </h3>
-            <input type = "text" placeholder="Search for a meal here"/>
+            <input type = "text" placeholder="Search for a meal here" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
             <br/> 
-            <button type="submit">Search</button>
+            <button type="button" onClick={handleSearch}>Search</button>
             <br/>
             <br/>
-            <label for="meals">Search by Category:</label>
-            <select id="meals" name="meals">
+            <label htmlfor="meals">Search by Category:</label>
+            <select id="meals" name="meals" value={category} onChange={(e) => setCategory(e.target.value)}>
+                <option value="">Select a category</option>
                 <option value="High Protein">High Protein</option>
                 <option value="High Carb">High Carb</option>
                 <option value="Low Carb">Low Carb</option>
@@ -82,7 +83,7 @@ export function MealPlans() {
                 <option value="Tasty Cheat Day Meals!">Tasty Cheat Day Meals!</option>
             </select>
             <br/>
-            <button type="submit">Search</button>
+            <button type="submit" onClick={handleSearch}>Search</button>
             <h2>High Protein</h2>
             <p><i>content here</i></p>
             <input type = "text" placeholder="post a meal here!"/>
