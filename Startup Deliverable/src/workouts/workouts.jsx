@@ -73,68 +73,65 @@ export function Workouts() {
       }
     });
   };
-  
+
   return (
     <main>
-            <br/> 
-            <br/> 
-            <br/> 
-            <br/> 
-            <h1>Workouts</h1>
-            <h3>Username: </h3>
-            <input type="text" placeholder="Search for a workout here"/>
-            <br/> 
-            <button type="submit">Search</button>
-            <br/>
-            <br/>
-            <label for="workouts">Search by Category:</label>
-            <select id="workouts" name="workouts">
-                <option value="arms">Arm Workouts</option>
-                <option value="shoulders">Shoulder Workouts</option>
-                <option value="back">Back Workouts</option>
-                <option value="chest">Chest Workouts</option>
-                <option value="quad">Quad Workouts</option>
-                <option value="hamstring/calves">Hamstring and Calf Workouts</option>
-                <option value="core">Core Workouts</option>
-            </select>
-            <br/>
-            <button type="submit">Search</button>
-            <br/>
-            <h2>Arm Workouts</h2>
-            <p><i>content here</i></p>
-            <input type = "text" placeholder="type your workout here!"/>
-            <input type = "text" placeholder="name your workout here!"/>
-            <button type="submit">Post</button>
-            <h2>Shoulder Workouts</h2>
-            <p><i>content here</i></p>
-            <input type = "text" placeholder="type your workout here!"/>
-            <input type = "text" placeholder="name your workout here!"/>
-            <button type="submit">Post</button>
-            <h2>Back Workouts</h2>
-            <p><i>content here</i></p>
-            <input type = "text" placeholder="type your workout here!"/>
-            <input type = "text" placeholder="name your workout here!"/>
-            <button type="submit">Post</button>
-            <h2>Chest Workouts</h2>
-            <p><i>content here</i></p>
-            <input type = "text" placeholder="type your workout here!"/>
-            <input type = "text" placeholder="name your workout here!"/>
-            <button type="submit">Post</button>
-            <h2>Quad Workouts</h2>
-            <p><i>content here</i></p>
-            <input type = "text" placeholder="type your workout here!"/>
-            <input type = "text" placeholder="name your workout here!"/>
-            <button type="submit">Post</button>
-            <h2>Hamstring and Calf Workouts</h2>
-            <p><i>content here</i></p>
-            <input type = "text" placeholder="type your workout here!"/>
-            <input type = "text" placeholder="name your workout here!"/>
-            <button type="submit">Post</button>
-            <h2>Core Workouts</h2>
-            <p><i>content here</i></p>
-            <input type = "text" placeholder="type your workout here!"/>
-            <input type = "text" placeholder="name your workout here!"/>
-            <button type = "submit">Post</button>
-        </main>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <h1>Workouts</h1>
+      <h3>Username: {username}</h3>
+      <input
+        type="text"
+        placeholder="Search for a workout here"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <br/>
+      <button type="button" onClick={handleSearch}>Search</button>
+      <br/>
+      <br/>
+      <label htmlFor="workouts">Search by Category:</label>
+      <select
+        id="workouts"
+        name="workouts"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      >
+        <option value="">Select a category</option>
+        <option value="arms">Arm Workouts</option>
+        <option value="shoulders">Shoulder Workouts</option>
+        <option value="back">Back Workouts</option>
+        <option value="chest">Chest Workouts</option>
+        <option value="quad">Quad Workouts</option>
+        <option value="hamstring/calves">Hamstring and Calf Workouts</option>
+        <option value="core">Core Workouts</option>
+      </select>
+      <br/>
+      <button type="button" onClick={handleSearch}>Search</button>
+
+      {Object.keys(workouts).map((category) => (
+        <div key={category} ref={(el) => (categoryRefs.current[category] = el)}>
+          <h2>{category.charAt(0).toUpperCase() + category.slice(1)} Workouts</h2>
+          {workouts[category].map((workout, index) => (
+            <p key={index}><i>{workout.name}: {workout.content}</i></p>
+          ))}
+          <input
+            type="text"
+            placeholder="type your workout here!"
+            value={newWorkoutInputs[category].workout}
+            onChange={(e) => handleInputChange(category, 'workout', e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="name your workout here!"
+            value={newWorkoutInputs[category].name}
+            onChange={(e) => handleInputChange(category, 'name', e.target.value)}
+          />
+          <button type="button" onClick={() => handlePost(category)}>Post</button>
+        </div>
+      ))}
+    </main>
   );
 }
