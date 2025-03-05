@@ -1,7 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 export function Login() {
-  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setIsLoggedIn(true);
+    }
+  }, []);
   return (
     <main>
             <br/> 
