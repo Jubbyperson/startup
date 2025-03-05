@@ -12,6 +12,14 @@ export function Login() {
       setIsLoggedIn(true);
     }
   }, []);
+
+  const handleLogin = () => {
+    if (email.trim() && password.trim()) {
+      localStorage.setItem("user", JSON.stringify({ email }));
+      setIsLoggedIn(true);
+      navigate("/workouts");
+    }
+  };
   return (
     <main>
             <br/> 
