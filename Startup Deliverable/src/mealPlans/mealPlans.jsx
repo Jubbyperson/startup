@@ -15,6 +15,18 @@ export function MealPlans() {
     'Low Calorie': [],
     'Tasty Cheat Day Meals!': []
   });
+
+  const [newMealInputs, setNewMealInputs] = useState({
+    'High Protein': { meal: "", name: "" },
+    'High Carb': { meal: "", name: "" },
+    'Low Carb': { meal: "", name: "" },
+    'High Fat': { meal: "", name: "" },
+    'Low Fat': { meal: "", name: "" },
+    'Calorie Dense': { meal: "", name: "" },
+    'Low Calorie': { meal: "", name: "" },
+    'Tasty Cheat Day Meals!': { meal: "", name: "" }
+  });
+  
   return (
     <main>
             <br/> 
