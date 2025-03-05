@@ -23,6 +23,21 @@ export function Social() {
       setMessages(storedMessages);
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("friends", JSON.stringify(friends));
+  }, [friends]);
+
+  useEffect(() => {
+    localStorage.setItem("messages", JSON.stringify(messages));
+  }, [messages]);
+
+  const handleAddFriend = () => {
+    if (newFriend.trim()) {
+      setFriends([...friends, newFriend.trim()]);
+      setNewFriend("");
+    }
+  };
   
   return (
     <main>
