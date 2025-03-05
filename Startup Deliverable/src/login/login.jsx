@@ -55,7 +55,7 @@ export function Login() {
             />
             </div>
             <button onClick={handleLogin}>Login</button>
-            <button onClick={() => alert("Sign-up functionality coming soon!")}>
+            <button onClick={() => alert("Sign-up functionality coming soon")}>
             Create
             </button>
             </div>

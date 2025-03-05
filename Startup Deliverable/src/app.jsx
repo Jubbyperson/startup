@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
@@ -9,6 +9,17 @@ import { Social } from './social/social';
 import { Workouts } from './workouts/workouts';
 
 export default function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem("user");
+        setIsLoggedIn(!!storedUser);
+        }, []);
+        
+        const handleLogout = () => {
+            localStorage.removeItem("user");
+            setIsLoggedIn(false);
+    };
     return (
         <BrowserRouter>
             <div className="body bg-dark text-light">
