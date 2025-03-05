@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './workouts.css';
 
 export function Workouts() {
@@ -25,6 +25,7 @@ export function Workouts() {
     'Core': { workout: "", name: "" }
   });
 
+  const [filteredWorkouts, setFilteredWorkouts] = useState(workouts);
   const categoryRefs = useRef({});
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export function Workouts() {
     const storedWorkouts = JSON.parse(localStorage.getItem("workouts"));
     if (storedWorkouts) {
       setWorkouts(storedWorkouts);
+      setFilteredWorkouts(storedWorkouts);
     }
   }, []);
 
@@ -45,8 +47,27 @@ export function Workouts() {
 
   const handleSearch = () => {
     console.log(`Searching for: ${searchTerm} in category: ${category}`);
-    if (category && categoryRefs.current[category]) {
-      categoryRefs.current[category].scrollIntoView({ behavior: 'smooth' });
+    if (category) {
+      const filtered = {
+        ...workouts,
+        [category]: workouts[category].filter(workout =>
+          workout.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          workout.content.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      };
+      setFilteredWorkouts(filtered);
+      if (categoryRefs.current[category]) {
+        categoryRefs.current[category].scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      const filtered = Object.keys(workouts).reduce((acc, key) => {
+        acc[key] = workouts[key].filter(workout =>
+          workout.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          workout.content.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        return acc;
+      }, {});
+      setFilteredWorkouts(filtered);
     }
   };
 
@@ -100,21 +121,21 @@ export function Workouts() {
         onChange={(e) => setCategory(e.target.value)}
       >
         <option value="">Select a category</option>
-        <option value="arms">Arm Workouts</option>
-        <option value="shoulders">Shoulder Workouts</option>
-        <option value="back">Back Workouts</option>
-        <option value="chest">Chest Workouts</option>
-        <option value="quad">Quad Workouts</option>
-        <option value="hamstring/calves">Hamstring and Calf Workouts</option>
-        <option value="core">Core Workouts</option>
+        <option value="Arms">Arm Workouts</option>
+        <option value="Shoulders">Shoulder Workouts</option>
+        <option value="Back">Back Workouts</option>
+        <option value="Chest">Chest Workouts</option>
+        <option value="Quad">Quad Workouts</option>
+        <option value="Hamstring/Calves">Hamstring and Calf Workouts</option>
+        <option value="Core">Core Workouts</option>
       </select>
       <br/>
       <button type="button" onClick={handleSearch}>Search</button>
 
-      {Object.keys(workouts).map((category) => (
+      {Object.keys(filteredWorkouts).map((category) => (
         <div key={category} ref={(el) => (categoryRefs.current[category] = el)}>
           <h2>{category.charAt(0).toUpperCase() + category.slice(1)} Workouts</h2>
-          {workouts[category].map((workout, index) => (
+          {filteredWorkouts[category].map((workout, index) => (
             <p key={index}><i>{workout.name}: {workout.content}</i></p>
           ))}
           <input
