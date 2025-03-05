@@ -33,7 +33,16 @@ export function MealPlans() {
     if (storedUser) {
       setUsername(storedUser.email);
     }
+
+    const storedMeals = JSON.parse(localStorage.getItem("meals"));
+    if (storedMeals) {
+      setMeals(storedMeals);
+    }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("meals", JSON.stringify(meals));
+  }, [meals]);
 
   const handleSearch = () => {
     console.log(`Searching for: ${searchTerm} in category: ${category}`);
