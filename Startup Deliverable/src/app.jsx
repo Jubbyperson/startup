@@ -26,30 +26,41 @@ export default function App() {
                 <header>
                     <nav>
                         <menu>
-                            <li className="title"><img src="https://t4.ftcdn.net/jpg/02/43/26/65/360_F_243266561_JPLUStDWwsBJ05qOZsWK3G1ARB6pU8Se.jpg" width="150" length="100"></img>GymShare</li>
-                            <li><NavLink to="/">Home</NavLink></li>
-                            <li><NavLink to="workouts">Workouts</NavLink></li>
-                            <li><NavLink to="mealPlans">Meal Plans</NavLink></li>
-                            <li><NavLink to="social">Social</NavLink></li>
+                            <li className="title">
+                                <img src="https://t4.ftcdn.net/jpg/02/43/26/65/360_F_243266561_JPLUStDWwsBJ05qOZsWK3G1ARB6pU8Se.jpg" width="150" alt="GymShare Logo" />
+                                GymShare
+                            </li>
+
+                            {isLoggedIn ? (
+                                <>
+                                    <li><NavLink to="/workouts">Workouts</NavLink></li>
+                                    <li><NavLink to="/mealPlans">Meal Plans</NavLink></li>
+                                    <li><NavLink to="/social">Social</NavLink></li>
+                                    <li><button onClick={handleLogout} className="btn btn-danger">Logout</button></li>
+                                </>
+                            ) : (
+                                <li><NavLink to="/">Login</NavLink></li>
+                            )}
                         </menu>
                     </nav>
-                <hr />
+                    <hr />
                 </header>
 
                 <Routes>
-                    <Route path="/" element={<Login />} />
-                    <Route path="/workouts" element={<Workouts />} />
-                    <Route path="/mealPlans" element={<MealPlans />} />
-                    <Route path="/social" element={<Social />} />
-                    <Route path='*' element={<NotFound />} />
+                    <Route path="/" element={isLoggedIn ? <Navigate to="/workouts" /> : <Login />} />
+                    <Route path="/workouts" element={isLoggedIn ? <Workouts /> : <Navigate to="/" />} />
+                    <Route path="/mealPlans" element={isLoggedIn ? <MealPlans /> : <Navigate to="/" />} />
+                    <Route path="/social" element={isLoggedIn ? <Social /> : <Navigate to="/" />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
 
                 <footer>
-                <hr />
+                    <hr />
                     <span className="text-reset">Jackson Stephens</span>
-                    <br/>
+                    <br />
                     <a href="https://github.com/Jubbyperson/startup-deliverable.git">GitHub Repository</a>
-                </footer></div>;
+                </footer>
+            </div>
         </BrowserRouter>
     );
 }
