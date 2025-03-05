@@ -1,6 +1,12 @@
 import React, {useState, useEffect } from 'react';
 
 export function Social() {
+  const [username, setUsername] = useState("");
+  const [friends, setFriends] = useState([]);
+  const [newFriend, setNewFriend] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState("");
+  
   return (
     <main>
         <br/>
