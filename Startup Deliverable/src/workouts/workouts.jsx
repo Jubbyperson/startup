@@ -2,6 +2,28 @@ import React, {useState, useEffect, useRef} from 'react';
 import './workouts.css';
 
 export function Workouts() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState("");
+  const [username, setUsername] = useState("");
+  const [workouts, setWorkouts] = useState({
+    'Arms': [],
+    'Shoulders': [],
+    'Back': [],
+    'Chest': [],
+    'Quad': [],
+    'Hamstring/Calves': [],
+    'Core': []
+  });
+
+  const [newWorkoutInputs, setNewWorkoutInputs] = useState({
+    'Arms': { workout: "", name: "" },
+    'Shoulders': { workout: "", name: "" },
+    'Back': { workout: "", name: "" },
+    'Chest': { workout: "", name: "" },
+    'Quad': { workout: "", name: "" },
+    'Hamstring/Calves': { workout: "", name: "" },
+    'Core': { workout: "", name: "" }
+  });
   return (
     <main>
             <br/> 
