@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export function MealPlans() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,6 +26,8 @@ export function MealPlans() {
     'Tasty Cheat Day Meals!': { meal: "", name: "" }
   });
 
+  const categoryRefs = useRef({});
+
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
@@ -35,7 +37,9 @@ export function MealPlans() {
 
   const handleSearch = () => {
     console.log(`Searching for: ${searchTerm} in category: ${category}`);
-    // Implement search logic here
+    if (category && categoryRefs.current[category]) {
+      categoryRefs.current[category].scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handlePost = (category) => {
@@ -101,7 +105,7 @@ export function MealPlans() {
       <button type="button" onClick={handleSearch}>Search</button>
 
       {Object.keys(meals).map((category) => (
-        <div key={category}>
+        <div key={category} ref={(el) => (categoryRefs.current[category] = el)}>
           <h2>{category}</h2>
           {meals[category].map((meal, index) => (
             <p key={index}><i>{meal.name}: {meal.content}</i></p>
