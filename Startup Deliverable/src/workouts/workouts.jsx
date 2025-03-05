@@ -38,6 +38,19 @@ export function Workouts() {
       setWorkouts(storedWorkouts);
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("workouts", JSON.stringify(workouts));
+  }, [workouts]);
+
+  const handleSearch = () => {
+    console.log(`Searching for: ${searchTerm} in category: ${category}`);
+    if (category && categoryRefs.current[category]) {
+      categoryRefs.current[category].scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  
   return (
     <main>
             <br/> 
