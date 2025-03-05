@@ -1,6 +1,20 @@
 import React, {useState} from 'react';
 
 export function MealPlans() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState("");
+  const [newMeal, setNewMeal] = useState("");
+  const [mealName, setMealName] = useState("");
+  const [meals, setMeals] = useState({
+    'High Protein': [],
+    'High Carb': [],
+    'Low Carb': [],
+    'High Fat': [],
+    'Low Fat': [],
+    'Calorie Dense': [],
+    'Low Calorie': [],
+    'Tasty Cheat Day Meals!': []
+  });
   return (
     <main>
             <br/> 
