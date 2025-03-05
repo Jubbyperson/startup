@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export function Social() {
   const [username, setUsername] = useState("");
@@ -42,7 +42,7 @@ export function Social() {
   const handleSendMessage = () => {
     if (newMessage.trim()) {
       const message = {
-        username,
+        username: username || "Anonymous",
         content: newMessage.trim(),
         timestamp: new Date().toLocaleTimeString()
       };
@@ -50,21 +50,43 @@ export function Social() {
       setNewMessage("");
     }
   };
-  
+
   return (
     <main>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <h1>Social</h1>
-        <h3>Username: </h3>
-        <h2>Friends</h2>
-        <p><i>Friends listed here</i></p>
-        <input type = "text" placeholder="Add Friend"/>
-        <button type ="submit">+</button>
-        <h2>Chats</h2>
-        <p><i>Recent chats here</i></p>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <h1>Social</h1>
+      <h3>Username: {username || "Anonymous"}</h3>
+      <h2>Friends</h2>
+      {friends.length > 0 ? (
+        friends.map((friend, index) => <p key={index}><i>{friend}</i></p>)
+      ) : (
+        <p><i>No friends added yet</i></p>
+      )}
+      <input
+        type="text"
+        placeholder="Add Friend"
+        value={newFriend}
+        onChange={(e) => setNewFriend(e.target.value)}
+      />
+      <button type="button" onClick={handleAddFriend}>+</button>
+      <h2>Chats</h2>
+      <div className="chat-box">
+        {messages.map((message, index) => (
+          <div key={index} className="chat-message">
+            <strong>{message.username}</strong>: {message.content} <span>{message.timestamp}</span>
+          </div>
+        ))}
+      </div>
+      <input
+        type="text"
+        placeholder="Type your message here"
+        value={newMessage}
+        onChange={(e) => setNewMessage(e.target.value)}
+      />
+      <button type="button" onClick={handleSendMessage}>Send</button>
     </main>
   );
 }
