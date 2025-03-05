@@ -26,6 +26,36 @@ export function MealPlans() {
     'Low Calorie': { meal: "", name: "" },
     'Tasty Cheat Day Meals!': { meal: "", name: "" }
   });
+
+  const handleSearch = () => {
+    console.log(`Searching for: ${searchTerm} in category: ${category}`);
+    // Implement search logic here
+  };
+
+  const handlePost = (category) => {
+    const { meal, name } = newMealInputs[category];
+    if (meal && name) {
+      setMeals({
+        ...meals,
+        [category]: [...meals[category], { name, content: meal }]
+      });
+      setNewMealInputs({
+        ...newMealInputs,
+        [category]: { meal: "", name: "" }
+      });
+    }
+  };
+  
+  const handleInputChange = (category, field, value) => {
+    setNewMealInputs({
+      ...newMealInputs,
+      [category]: {
+        ...newMealInputs[category],
+        [field]: value
+      }
+    });
+  };
+
   
   return (
     <main>
