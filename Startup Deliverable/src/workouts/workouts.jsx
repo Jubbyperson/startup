@@ -50,6 +50,29 @@ export function Workouts() {
     }
   };
 
+  const handlePost = (category) => {
+    const { workout, name } = newWorkoutInputs[category];
+    if (workout && name) {
+      setWorkouts({
+        ...workouts,
+        [category]: [...workouts[category], { name, content: workout }]
+      });
+      setNewWorkoutInputs({
+        ...newWorkoutInputs,
+        [category]: { workout: "", name: "" }
+      });
+    }
+  };
+
+  const handleInputChange = (category, field, value) => {
+    setNewWorkoutInputs({
+      ...newWorkoutInputs,
+      [category]: {
+        ...newWorkoutInputs[category],
+        [field]: value
+      }
+    });
+  };
   
   return (
     <main>
