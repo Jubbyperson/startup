@@ -6,6 +6,23 @@ export function Social() {
   const [newFriend, setNewFriend] = useState("");
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUsername(storedUser.email);
+    }
+
+    const storedFriends = JSON.parse(localStorage.getItem("friends"));
+    if (storedFriends) {
+      setFriends(storedFriends);
+    }
+
+    const storedMessages = JSON.parse(localStorage.getItem("messages"));
+    if (storedMessages) {
+      setMessages(storedMessages);
+    }
+  }, []);
   
   return (
     <main>
