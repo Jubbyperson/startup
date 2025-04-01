@@ -71,3 +71,19 @@ const verifyAuth = async (req, res, next) => {
     res.status(401).send({ msg: 'Unauthorized' });
   }
 };
+
+apiRouter.get('/workouts', verifyAuth, (_req, res) => {
+  res.send(workouts);
+});
+
+apiRouter.post('/workouts', verifyAuth, (req, res) => {
+  const { name, content } = req.body;
+  const category = req.body.category || 'Arms';
+  if (workouts[category]) {
+    workouts[category].push({ name, content });
+    res.send(workouts);
+  } else {
+    res.status(400).send({ msg: 'Invalid category' });
+  }
+});
+
