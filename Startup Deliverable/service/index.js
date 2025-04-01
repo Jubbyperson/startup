@@ -87,3 +87,20 @@ apiRouter.post('/workouts', verifyAuth, (req, res) => {
   }
 });
 
+apiRouter.get('/social', verifyAuth, (_req, res) => {
+  res.send(socialPosts);
+});
+
+apiRouter.post('/social', verifyAuth, (req, res) => {
+  socialPosts.push(req.body);
+  res.send(socialPosts);
+});
+
+apiRouter.get('/mealPlans', verifyAuth, (_req, res) => {
+  res.send(mealPlans);
+});
+
+apiRouter.post('/mealPlans', verifyAuth, (req, res) => {
+  mealPlans.push(req.body);
+  res.send(mealPlans);
+});
