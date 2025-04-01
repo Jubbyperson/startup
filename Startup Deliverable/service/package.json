@@ -1,18 +1,17 @@
 {
-  "name": "service",
+  "name": "startup-deliverable-service",
   "version": "1.0.0",
-  "main": "service.js",
+  "description": "Backend service for startup-deliverable project",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
-  "description": "",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
     "express": "^4.21.2",
-    "uuid": "^11.1.0"
+    "uuid": "^11.0.5"
   }
 }
