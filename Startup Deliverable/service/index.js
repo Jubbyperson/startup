@@ -131,3 +131,15 @@ async function findUser(field, value) {
 
   return users.find((u) => u[field] === value);
 }
+
+function setAuthCookie(res, authToken) {
+  res.cookie(authCookieName, authToken, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
