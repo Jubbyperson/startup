@@ -9,3 +9,14 @@ const workoutCollection = db.collection('workout');
 const socialCollection = db.collection('social');
 const mealPlanCollection = db.collection('mealPlan');
 
+// This will asynchronously test the connection and exit the process if it fails
+(async function testConnection() {
+  try {
+    await db.command({ ping: 1 });
+    console.log(`Connected to database`);
+  } catch (ex) {
+    console.log(`Unable to connect to database with ${url} because ${ex.message}`);
+    process.exit(1);
+  }
+})();
+
