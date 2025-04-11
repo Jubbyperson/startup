@@ -36,3 +36,11 @@ async function updateUser(user) {
   await userCollection.updateOne({ email: user.email }, { $set: user });
 }
 
+async function addWorkout(workout) {
+  return workoutCollection.insertOne(workout);
+}
+
+function getWorkouts() {
+  return workoutCollection.find().toArray();
+}
+
