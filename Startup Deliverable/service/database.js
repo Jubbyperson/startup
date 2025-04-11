@@ -32,3 +32,7 @@ async function addUser(user) {
   await userCollection.insertOne(user);
 }
 
+async function updateUser(user) {
+  await userCollection.updateOne({ email: user.email }, { $set: user });
+}
+
