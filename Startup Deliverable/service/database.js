@@ -48,3 +48,6 @@ async function addSocialPost(post) {
   return socialCollection.insertOne(post);
 }
 
+function getSocialPosts() {
+  return socialCollection.find().toArray();
+}
