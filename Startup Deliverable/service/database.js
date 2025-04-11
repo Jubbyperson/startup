@@ -44,3 +44,7 @@ function getWorkouts() {
   return workoutCollection.find().toArray();
 }
 
+async function addSocialPost(post) {
+  return socialCollection.insertOne(post);
+}
+
