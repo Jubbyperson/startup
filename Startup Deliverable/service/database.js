@@ -51,3 +51,7 @@ async function addSocialPost(post) {
 function getSocialPosts() {
   return socialCollection.find().toArray();
 }
+
+async function addMealPlan(mealPlan) {
+  return mealPlanCollection.insertOne(mealPlan);
+}
