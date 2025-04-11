@@ -59,3 +59,16 @@ async function addMealPlan(mealPlan) {
 function getMealPlans() {
   return mealPlanCollection.find().toArray();
 }
+
+module.exports = {
+  getUser,
+  getUserByToken,
+  addUser,
+  updateUser,
+  addWorkout,
+  getWorkouts,
+  addSocialPost,
+  getSocialPosts,
+  addMealPlan,
+  getMealPlans,
+};
