@@ -20,3 +20,7 @@ const mealPlanCollection = db.collection('mealPlan');
   }
 })();
 
+function getUser(email) {
+  return userCollection.findOne({ email: email });
+}
+
