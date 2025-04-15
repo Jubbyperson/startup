@@ -17,3 +17,11 @@ function peerProxy(httpServer) {
     socket.on('pong', () => {
       socket.isAlive = true;
     });
+  });
+
+  setInterval(() => {
+    socketServer.clients.forEach((client) => {
+      if (!client.isAlive) return client.terminate();
+      client.isAlive = false;
+      client.ping();
+    });
